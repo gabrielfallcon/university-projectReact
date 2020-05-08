@@ -11,6 +11,12 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+  }
 `;
 
 export const TypeRegister = styled.div`
@@ -22,22 +28,69 @@ export const TypeRegister = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
-  h1 {
-    font-size: 60px;
-    font-weight: 400;
-    margin-bottom: 80px
+  position: relative;
+
+  header {
+    .logoff {
+      height: 60px;
+      width: 150px;
+      background-color: transparent;
+      border: 3px solid #121212;
+      color: #1d1d1d;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 40px;
+      position:absolute;
+      top: 5px;
+      right: 10px;
+    }
+    
+    h1 {
+      font-size: 60px;
+      font-weight: 400;
+      margin-bottom: 80px
+    }
   }
 
-  button{
-    height: 70px;
-    width: 250px;
-    background-color: transparent;
-    border: 3px solid #121212;
-    color: #1d1d1d;
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: 600;
+  .btn{
+    display: flex;
+    flex-direction: column;
+    button{
+      height: 70px;
+      width: 250px;
+      background-color: transparent;
+      border: 3px solid #121212;
+      color: #1d1d1d;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+    border-radius: 0;
+    
+    header {
+      width: 100%;
+      display: flex;
+      align-items:center;
+      justify-content: space-around;
+      
+      .logoff {
+        height: 40px;
+        width: 100px;
+        border: 1px solid #121212;
+      }
+
+      h1 {
+        font-size: 25px;
+        margin-bottom: 50px;
+        margin-left: -10%;
+        margin-top: 10px;
+      }
+    }
   }
 `;
 
@@ -45,6 +98,11 @@ export const FormRegister = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const UserRegister = styled.div`
@@ -58,6 +116,15 @@ export const UserRegister = styled.div`
     font-size: 60px;
     color: #BB86FC;
     margin-bottom: 10%;
+  }
+
+  @media(max-width: 768px) {
+    height: auto;
+
+    h1 {
+      font-size: 40px;
+      margin-top: 20px;
+    }
   }
 `;
 
@@ -73,6 +140,15 @@ export const ServiceRegister = styled.div`
     color: #BB86FC;
     margin-bottom: 10%;
   }
+
+  @media(max-width: 768px) {
+    height: auto;
+
+    h1 {
+      font-size: 40px;
+      margin-top: 20px;
+    }
+  }
 `;
 
 export const Form = styled.form`
@@ -87,8 +163,6 @@ export const Form = styled.form`
     display: flex;
     justify-content: left;
 
-    
-    
     input, select {
       height: 70px;
       padding: 20px;
@@ -103,6 +177,7 @@ export const Form = styled.form`
         color: #000000;
       }
     }
+
     textarea {
       width: 60%;
       height: 300px;
@@ -139,7 +214,6 @@ export const Form = styled.form`
     .numero{
       width: 20%;
     }
-    
     .file {
       cursor: pointer;
     }
@@ -163,6 +237,34 @@ export const Form = styled.form`
     border: 2px solid #BB86FC;
     background-color: #1B1B1B;
     color: #BB86FC;
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+    height: auto;
+    padding: 0 5px;
+
+    .line {
+      flex-direction: column;
+      margin-bottom: 0;
+      align-items: center;
+
+      input {
+        width: 80% !important;
+        margin-bottom: 10px;
+      }
+      textarea {
+        width: 90%
+      }
+      .prestador {
+        width: 70%;
+      }
+    }
+
+    .cadastro {
+      margin-bottom: 20px;
+      align-self: center;
+    }
   }
   
 `;

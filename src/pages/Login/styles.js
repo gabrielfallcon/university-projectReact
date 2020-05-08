@@ -7,7 +7,6 @@ export const Container = styled.div`
   background-color: #1D1D1D;
   padding: 30px;
   margin: 0;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,6 +17,20 @@ export const Container = styled.div`
     position: absolute;
     right: 20%;
     top: 20%;
+  }
+
+  @media(max-width: 768px) {
+    padding: 0;
+    border-radius: 0;
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    img {
+      width: 250px;
+      top: 20px;
+      position: relative;
+      right: 0;
+    }
   }
 `;
 
@@ -67,6 +80,33 @@ export const Content = styled.div`
       justify-content: center;
       border-radius: 12px;
       border: 0;
+    }
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 0;
+    background-color: #1D1D1D;
+
+    h1{
+      display: none;
+    }
+
+    form{
+      input{
+        width: 80%;
+        color: #1D1D1D;
+        background-color: #BB86FC;
+        ::placeholder {
+          color: #121212;
+        }
+      }
+      button{
+        width: 180px;
+        background-color: #BB86FC;
+        color: #1D1D1D;
+      }
     }
   }
 `;

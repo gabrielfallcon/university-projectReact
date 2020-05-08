@@ -5,7 +5,7 @@ import Error from '../../components/Error'
 
 import { Container, TypeRegister, FormRegister, UserRegister, ServiceRegister, Form } from './styles';
 
-const Register = () => {
+const Register = ({ history }) => {
   const [typeUser, setTypeUser] = useState(true)
   const [success, setSuccess] = useState(false)
 
@@ -30,23 +30,32 @@ const Register = () => {
     setSuccess(true)
   }
 
+  const logoff = () => {
+    history.push('/')
+  }
+
   return (
     <Container>
-        { success == true ? <Modal close={closeModel} title="Cadastrado com sucesso"/> : '' }
+      {success == true ? <Modal close={closeModel} title="Cadastrado com sucesso" /> : ''}
       <TypeRegister>
-        <h1>Tipos de Cadastro</h1>
-        <button onClick={setUser}>Usuário</button>
-        <button onClick={setService}>Serviço</button>
+        <header>
+          <h1>Tipos de Cadastro</h1>
+          <button onClick={logoff} className="logoff">Sair</button>
+        </header>
+        <div className="btn">
+          <button onClick={setUser}>Usuário</button>
+          <button onClick={setService}>Serviço</button>
+        </div>
       </TypeRegister>
 
       <FormRegister>
-        { typeUser === true
+        {typeUser === true
           ?
           <UserRegister>
             <h1>Cadastro de Usuário</h1>
             <Form onSubmit={handdlRegister}>
               <div className="line">
-                <select name="prestador" required>
+                <select name="prestador" className="prestador" required>
                   <option value="prestador">Prestador</option>
                   <option value="cliente">Cliente</option>
                   <option value="admin">Admin</option>
@@ -58,9 +67,9 @@ const Register = () => {
               </div>
               <div className="line">
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="senha" placeholder="Senha" required />
-                <input type="password" value={confirm}  onChange={(e) => setConfirm(e.target.value)} className="confirm" placeholder="Confirme a senha" required />
+                <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} className="confirm" placeholder="Confirme a senha" required />
               </div>
-                { password !== confirm ? <Error error="As senhas não batem"/> : '' }
+              {password !== confirm ? <Error error="As senhas não batem" /> : ''}
               <div className="line">
                 <input type="text" className="endereco" placeholder="Endereço" required />
                 <input type="text" className="numero" placeholder="Numero" required />

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom'
 
 import logo from '../../assets/logo.png';
+
 
 import { Container, Content } from './styles';
 
@@ -10,16 +10,14 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState('')
 
   const [user, setUser] = useState({
-    cpf: 49514232860,
-    senha: 20130036
+    cpf: 12345678910,
+    senha: 12345678910
   })
 
   const handleLogin = (e) => {
     e.preventDefault()
     
     if (cpf == user.cpf && password == user.senha) {
-        alert('Logou')
-
         setCpf('') 
         setPassword('')
 

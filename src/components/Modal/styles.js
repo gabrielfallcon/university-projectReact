@@ -39,4 +39,17 @@ export const Container = styled.div`
     }
   }
 
+  @media(max-width: 768px) {
+    height: 100%;
+
+    .content {
+      width: 350px;
+      text-align: center;
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  }
+
 `;
