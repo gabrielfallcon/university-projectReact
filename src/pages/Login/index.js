@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { cpf } from 'cpf-cnpj-validator'
 
 import logo from '../../assets/logo.png';
 import Error from '../../components/Error'
@@ -7,20 +8,18 @@ import Error from '../../components/Error'
 import { Container, Content } from './styles';
 
 const Login = ({ history }) => {
-  const [cpf, setCpf] = useState('')
+  const [cpff, setCpf] = useState('')
   const [password, setPassword] = useState('')
 
   const [user, setUser] = useState({
-    cpf: 12345678910,
+    cpff: 49514232860,
     senha: 12345678910
   })
-
-  const cpfPattern = /^([0-9]{3}?[\.]?[-]?[0-9]{3}?[\.]?[-]?[0-9]{3}?[-]?[0-9]{2})*$/g;
 
   const handleLogin = (e) => {
     e.preventDefault()
     
-    if (cpf == user.cpf && password == user.senha) {
+    if (cpff == user.cpff && password == user.senha) {
         setCpf('') 
         setPassword('')
 
@@ -29,14 +28,14 @@ const Login = ({ history }) => {
         return
     }
 
-    if (cpf === '' || password === '') {
+    if (cpff === '' || password === '') {
       alert('Preencha todos os campos')
       setPassword('')
       setUser('')
       return
     }
 
-    if (cpf != user.cpf || password != user.senha) {
+    if (cpff != user.cpff || password != user.senha) {
       alert('Os campos estao invalidos')
       setPassword('')
       setCpf('')
@@ -55,11 +54,11 @@ const Login = ({ history }) => {
           <input 
             type="text" 
             placeholder="Digite seu CPF"
-            value={cpf}
+            value={cpff}
             onChange={e => setCpf(e.target.value)}
           />
 
-          {!cpfPattern.test(cpf) ? <Error error="CPF invalido" /> : ''}
+          {!cpf.isValid(cpff) && cpff.length >= 11 ? <Error error="CPF invalido" /> : ''}
 
           <input 
             type="password" 

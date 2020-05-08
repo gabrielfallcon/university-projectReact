@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { cpf } from 'cpf-cnpj-validator'
 
 import Modal from '../../components/Modal'
 import Error from '../../components/Error'
@@ -6,7 +7,7 @@ import Error from '../../components/Error'
 import { Container, TypeRegister, FormRegister, UserRegister, ServiceRegister, Form } from './styles';
 
 const Register = ({ history }) => {
-  const [cpf, setCpf] = useState()
+  const [cpff, setCpf] = useState('')
 
   const [typeUser, setTypeUser] = useState(true)
   const [success, setSuccess] = useState(false)
@@ -14,7 +15,7 @@ const Register = ({ history }) => {
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
 
-  const cpfPattern = /^([0-9]{3}?[\.]?[-]?[0-9]{3}?[\.]?[-]?[0-9]{3}?[-]?[0-9]{2})*$/g;
+  // const cpfPattern = /^([0-9]{3}?[\.]?[-]?[0-9]{3}?[\.]?[-]?[0-9]{3}?[-]?[0-9]{2})*$/g;
 
   const setService = () => {
     setTypeUser(false)
@@ -67,9 +68,9 @@ const Register = ({ history }) => {
               </div>
               <div className="line">
                 <input type="text" className="nome" placeholder="Nome" required />
-                <input type="text" value={cpf} onChange={e => setCpf(e.target.value)} className="cpf" placeholder="CPF" required />
+                <input type="text" value={cpff} onChange={e => setCpf(e.target.value)} className="cpff" placeholder="CPF" required />
               </div>
-              {!cpfPattern.test(cpf) ? <Error error="Por favor digite um CPF válido" /> : ''}
+              {!cpf.isValid(cpff) && cpff.length >= 11 ? <Error error="CPF invalido" /> : ''}
               <div className="line">
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="senha" placeholder="Senha" required />
                 <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} className="confirm" placeholder="Confirme a senha" required />
