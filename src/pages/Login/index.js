@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png';
 
 import { Container, Content } from './styles';
 
-const Login = () => {
+const Login = ({ history }) => {
   const [cpf, setCpf] = useState('')
   const [password, setPassword] = useState('')
 
@@ -19,8 +19,12 @@ const Login = () => {
     
     if (cpf == user.cpf && password == user.senha) {
         alert('Logou')
+
         setCpf('') 
         setPassword('')
+
+        history.push('/register')
+
         return
     }
 

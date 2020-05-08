@@ -1,11 +1,12 @@
 import React from 'react';
-import Login from './pages/Login'
+import Router from './routes'
 
 import './global.css'
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Login />
+    <Router />
   );
 }
 
