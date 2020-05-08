@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import logo from '../../assets/logo.png';
+import Error from '../../components/Error'
 
 
 import { Container, Content } from './styles';
@@ -13,6 +14,8 @@ const Login = ({ history }) => {
     cpf: 12345678910,
     senha: 12345678910
   })
+
+  const cpfPattern = /^([0-9]{3}?[\.]?[-]?[0-9]{3}?[\.]?[-]?[0-9]{3}?[-]?[0-9]{2})*$/g;
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -55,6 +58,9 @@ const Login = ({ history }) => {
             value={cpf}
             onChange={e => setCpf(e.target.value)}
           />
+
+          {!cpfPattern.test(cpf) ? <Error error="CPF invalido" /> : ''}
+
           <input 
             type="password" 
             placeholder="Digite sua senha"
