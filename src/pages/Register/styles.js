@@ -1,13 +1,15 @@
 import styled from 'styled-components'
+import logo from '../../assets/fundo.jpg';
 
 export const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  background-color: #1D1D1D;
   padding: 30px;
   margin: 0;
-
+  background: url(${logo}) no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,8 +24,9 @@ export const Container = styled.div`
 export const TypeRegister = styled.div`
   width: 40%;
   height: 100%;
-  background-color: #BB86FC;
-  border-radius: 40px;
+  max-height: 600px;
+  background-color: #FAFAFA;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,19 +38,19 @@ export const TypeRegister = styled.div`
       height: 60px;
       width: 150px;
       background-color: transparent;
-      border: 3px solid #121212;
+      border: 2px solid #121212;
       color: #1d1d1d;
       margin-bottom: 20px;
       font-size: 18px;
       font-weight: 600;
-      border-radius: 40px;
+      border-radius: 5px;
       position:absolute;
       top: 5px;
       right: 10px;
     }
     
     h1 {
-      font-size: 60px;
+      font-size: 50px;
       font-weight: 400;
       margin-bottom: 80px
     }
@@ -56,12 +59,13 @@ export const TypeRegister = styled.div`
   .btn{
     display: flex;
     flex-direction: column;
+    
     button{
       height: 70px;
       width: 250px;
-      background-color: transparent;
-      border: 3px solid #121212;
-      color: #1d1d1d;
+      background-color: #31629e;
+      border: 0;
+      color: #FAFAFA;
       margin-bottom: 20px;
       font-size: 18px;
       font-weight: 600;
@@ -113,8 +117,8 @@ export const UserRegister = styled.div`
   flex-direction: column;
 
   h1 {
-    font-size: 60px;
-    color: #BB86FC;
+    font-size: 50px;
+    color: #FAFAFA;
     margin-bottom: 10%;
   }
 
@@ -136,8 +140,8 @@ export const ServiceRegister = styled.div`
   flex-direction: column;
 
   h1 {
-    font-size: 60px;
-    color: #BB86FC;
+    font-size: 50px;
+    color: #FAFAFA;
     margin-bottom: 10%;
   }
 
@@ -168,13 +172,13 @@ export const Form = styled.form`
       padding: 20px;
       margin: 0 10px;
       border: 0;
-      background-color: #BB86FC;
+      background-color: #FAFAFA;
       color: #121212;
-      border-radius: 12px;
+      border-radius: 5px;
       font-size: 18px;
 
       ::placeholder {
-        color: #000000;
+        color: #1D1D1D;
       }
     }
 
@@ -184,7 +188,7 @@ export const Form = styled.form`
       padding: 20px;
       margin: 0 10px;
       border: 0;
-      background-color: #BB86FC;
+      background-color: #FAFAFA;
       color: #121212;
       border-radius: 12px;
       font-size: 18px;
@@ -223,20 +227,20 @@ export const Form = styled.form`
     margin-top: 10px;
     width: 190px;
     height: 80px;
-    background-color: #BB86FC;
+    background-color: #FAFAFA;
     border: 0;
     font-size: 20px;
     align-self: flex-start;
     margin-left: 10px;
-    border-radius: 12px;
+    border-radius: 5px;
   }
 
   .cadastro{
     margin-top: 10%;
     align-self: flex-end;
-    border: 2px solid #BB86FC;
-    background-color: #1B1B1B;
-    color: #BB86FC;
+    border: 0;
+    background-color: #FAFAFA;
+    color: #1D1D1D;
   }
 
   @media(max-width: 768px) {

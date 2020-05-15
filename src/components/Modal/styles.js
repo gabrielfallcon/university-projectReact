@@ -21,7 +21,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #BB86FC;
+    background-color: #31629e;
     border-radius: 12px;
 
     h1 {
@@ -33,9 +33,9 @@ export const Container = styled.div`
     button {
       width: 100px;
       height: 60px;
-      background-color: #BB86FC;
-      border: 2px solid #1D1D1D; 
-      border-radius: 12px;
+      background-color: #31629e;
+      border: 2px solid #FAFAFA; 
+      border-radius: 5px;
     }
   }
 

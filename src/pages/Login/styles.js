@@ -1,16 +1,21 @@
 import styled from 'styled-components'
+import logo from '../../assets/fundo.jpg';
 
 export const Container = styled.div`
-  box-sizing: border-box;
-  width: 100%;
+  /* box-sizing: border-box; */
+  /* width: 100%; */
+  flex: 1;
   height: 100vh;
-  background-color: #1D1D1D;
+  /* background-color: #1D1D1D; */
   padding: 30px;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  background: url(${logo}) no-repeat;
+  background-size: cover;
+  background-position: center;
 
   img {
     width: 400px;
@@ -37,17 +42,18 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 40%;
   height: 100%;
-  background-color: #BB86FC;
-  border-radius: 40px;
+  max-height: 550px;
+  background-color: #FAFAFA;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   
   h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 400;
-    margin-bottom: 80px
+    margin-bottom: 50px
   }
 
   form { 
@@ -58,14 +64,18 @@ export const Content = styled.div`
     
     input {
       width: 50%;
-      height: 70px;
+      height: 60px;
       border: 0;
-      background-color: #1D1D1D;
+      background-color: #31629e;
       padding: 10px 20px;
       margin-bottom: 20px;
-      color: #BB86FC;
+      color: #FAFAFA;
       font-size: 18px;
-      border-radius: 12px;
+      border-radius: 4px;
+
+      &::placeholder {
+        color: #FAFAFA;
+      }
     }
     button {
       width: 120px;
@@ -78,7 +88,7 @@ export const Content = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
+      border-radius: 3px;
       border: 0;
     }
   }

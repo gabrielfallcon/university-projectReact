@@ -1,21 +1,61 @@
 import React, { useState } from 'react';
 import { cpf } from 'cpf-cnpj-validator'
 
+import api from '../../services/api'
+
+
 import Modal from '../../components/Modal'
 import Error from '../../components/Error'
 
 import { Container, TypeRegister, FormRegister, UserRegister, ServiceRegister, Form } from './styles';
 
 const Register = ({ history }) => {
-  const [cpff, setCpf] = useState('')
-
-  const [typeUser, setTypeUser] = useState(true)
   const [success, setSuccess] = useState(false)
-
+  
+  // User 
+  const [name, setName] = useState('')
+  const [cpff, setCpf] = useState('')
   const [password, setPassword] = useState('')
-  const [confirm, setConfirm] = useState('')
+  const [address, setAddress] = useState('')
+  const [number, setNumber] = useState('')
+  const [typeUser, setTypeUser] = useState('')
 
-  // const cpfPattern = /^([0-9]{3}?[\.]?[-]?[0-9]{3}?[\.]?[-]?[0-9]{3}?[-]?[0-9]{2})*$/g;
+  // Service  
+  const [nameService, setNameService] = useState('')
+  const [file, setFile] = useState('')
+  const [description, setDescription] = useState('')
+
+  const handdlRegisterUser = async (e) => {
+    e.preventDefault()
+
+    const response = await api.post('sessions', {
+      name,
+      cpf: cpff,
+      password,
+      address,
+      number,
+      typeUser
+    });
+
+    setSuccess(true)
+
+    setName('')
+    setCpf('')
+    setPassword('')
+    setAddress('')
+    setNumber('')
+    setTypeUser('')
+  }
+
+  const handdlRegisterService = async (e) => {
+    e.preventDefault()
+
+    // criar a funcao de cadastro de servicos aqui.. 
+    // seguindo o exemplo de handdlRegisterUser
+
+    setSuccess(true)
+  }
+
 
   const setService = () => {
     setTypeUser(false)
@@ -27,12 +67,6 @@ const Register = ({ history }) => {
 
   const closeModel = () => {
     setSuccess(false)
-  }
-
-  const handdlRegister = (e) => {
-    e.preventDefault()
-
-    setSuccess(true)
   }
 
   const logoff = () => {
@@ -58,27 +92,25 @@ const Register = ({ history }) => {
           ?
           <UserRegister>
             <h1>Cadastro de Usuário</h1>
-            <Form onSubmit={handdlRegister}>
+            <Form onSubmit={handdlRegisterUser}>
               <div className="line">
-                <select name="prestador" className="prestador" required>
+                <select  value={typeUser} onChange={e => setTypeUser(e.target.value)} name="prestador" className="prestador" required>
+                  <option value="admin">Admin</option>
                   <option value="prestador">Prestador</option>
                   <option value="cliente">Cliente</option>
-                  <option value="admin">Admin</option>
                 </select>
               </div>
               <div className="line">
-                <input type="text" className="nome" placeholder="Nome" required />
+                <input type="text" className="nome" value={name} onChange={e => setName(e.target.value)} placeholder="Nome" required />
                 <input type="text" value={cpff} onChange={e => setCpf(e.target.value)} className="cpff" placeholder="CPF" required />
               </div>
               {!cpf.isValid(cpff) && cpff.length >= 11 ? <Error error="CPF invalido" /> : ''}
               <div className="line">
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="senha" placeholder="Senha" required />
-                <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} className="confirm" placeholder="Confirme a senha" required />
               </div>
-              {password !== confirm ? <Error error="As senhas não batem" /> : ''}
               <div className="line">
-                <input type="text" className="endereco" placeholder="Endereço" required />
-                <input type="text" className="numero" placeholder="Numero" required />
+                <input type="text" value={address} onChange={e => setAddress(e.target.value)} className="endereco" placeholder="Endereço" required />
+                <input type="text" value={number} onChange={e => setNumber(e.target.value)} className="numero" placeholder="Numero" required />
               </div>
               {/* <button>Add Endereço</button> */}
               <button type="submit" className="cadastro">Cadastrar</button>
@@ -87,15 +119,15 @@ const Register = ({ history }) => {
           :
           <ServiceRegister>
             <h1>Cadastro de Serviço</h1>
-            <Form onSubmit={handdlRegister}>
+            <Form onSubmit={handdlRegisterService}>
               <div className="line">
-                <input type="text" placeholder="Nome" required />
+                <input type="text" value={nameService} onChange={e => setNameService(e.target.value)}placeholder="Nome" required />
               </div>
               <div className="line">
-                <input type="file" className="file" placeholder="Anexar arquivo" required />
+                <input type="file" value={file} onChange={e => setFile(e.target.value)} className="file" placeholder="Anexar arquivo" required />
               </div>
               <div className="line">
-                <textarea cols="30" rows="50" placeholder="Descrição" required />
+                <textarea cols="30" value={description} onChange={e => setDescription(e.target.value)} rows="50" placeholder="Descrição" required />
               </div>
 
               <button className="cadastro">Cadastrar</button>

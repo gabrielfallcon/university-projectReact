@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { cpf } from 'cpf-cnpj-validator'
 
-import logo from '../../assets/logo.png';
-import Error from '../../components/Error'
+import api from '../../services/api'
 
+import Error from '../../components/Error'
 
 import { Container, Content } from './styles';
 
@@ -16,31 +16,18 @@ const Login = ({ history }) => {
     senha: 12345678910
   })
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
+
+    const loginUser = await api.post('login', {
+      cpf: cpff
+    });
     
-    if (cpff == user.cpff && password == user.senha) {
-        setCpf('') 
-        setPassword('')
-
-        history.push('/register')
-
-        return
+    if(loginUser.data == '') {
+      alert('Usuário inválido');
     }
 
-    if (cpff === '' || password === '') {
-      alert('Preencha todos os campos')
-      setPassword('')
-      setUser('')
-      return
-    }
-
-    if (cpff != user.cpff || password != user.senha) {
-      alert('Os campos estao invalidos')
-      setPassword('')
-      setCpf('')
-      return
-    }
+    history.push('register')
     
     return 
   }
@@ -70,7 +57,6 @@ const Login = ({ history }) => {
           <button type="submit">Entrar</button>
         </form>
       </Content>
-      <img src={logo} alt="Mallet"/>
     </Container>
   )
 }
