@@ -11,21 +11,26 @@ const Login = ({ history }) => {
   const [cpff, setCpf] = useState('')
   const [password, setPassword] = useState('')
 
-  const [user, setUser] = useState({
-    cpff: 49514232860,
-    senha: 12345678910
-  })
+  // const [user, setUser] = useState({
+  //   cpff: 49514232860,
+  //   senha: 12345678910
+  // })
 
   const handleLogin = async (e) => {
     e.preventDefault()
 
     const loginUser = await api.post('login', {
-      cpf: cpff
+      cpf: cpff,
+      password: password
     });
-    
-    if(loginUser.data == '') {
-      alert('Usuário inválido');
+
+    const { status, _id } = loginUser.data;
+
+    if(status === false) {
+      return alert('Usuário inválido');
     }
+
+    localStorage.setItem('user', _id)
 
     history.push('register')
     

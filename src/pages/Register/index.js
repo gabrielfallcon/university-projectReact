@@ -11,6 +11,7 @@ import { Container, TypeRegister, FormRegister, UserRegister, ServiceRegister, F
 
 const Register = ({ history }) => {
   const [success, setSuccess] = useState(false)
+  const [showUser, setShowUser] = useState(false)
   
   // User 
   const [name, setName] = useState('')
@@ -18,11 +19,11 @@ const Register = ({ history }) => {
   const [password, setPassword] = useState('')
   const [address, setAddress] = useState('')
   const [number, setNumber] = useState('')
-  const [typeUser, setTypeUser] = useState('')
+  const [typeUser, setTypeUser] = useState('admin')
 
   // Service  
   const [nameService, setNameService] = useState('')
-  const [file, setFile] = useState('')
+  const [file, setFile] = useState(null)
   const [description, setDescription] = useState('')
 
   const handdlRegisterUser = async (e) => {
@@ -34,7 +35,7 @@ const Register = ({ history }) => {
       password,
       address,
       number,
-      typeUser
+      typeuser: typeUser
     });
 
     setSuccess(true)
@@ -48,21 +49,33 @@ const Register = ({ history }) => {
   }
 
   const handdlRegisterService = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    // criar a funcao de cadastro de servicos aqui.. 
-    // seguindo o exemplo de handdlRegisterUser
+    const data = new FormData();
+    const user_id = localStorage.getItem('user');
 
-    setSuccess(true)
+    data.append('imageService', file);
+    data.append('name', nameService);
+    data.append('description', description);
+
+    
+    const response = await api.post('services', data ,{
+      headers: {user_id: user_id},
+    });
+   
+    setSuccess(true);
+    setFile(null);
+    setNameService('');
+    setDescription('');
   }
 
 
   const setService = () => {
-    setTypeUser(false)
+    setShowUser(false)
   }
 
   const setUser = () => {
-    setTypeUser(true)
+    setShowUser(true)
   }
 
   const closeModel = () => {
@@ -70,6 +83,7 @@ const Register = ({ history }) => {
   }
 
   const logoff = () => {
+    localStorage.removeItem('user');
     history.push('/')
   }
 
@@ -88,7 +102,7 @@ const Register = ({ history }) => {
       </TypeRegister>
 
       <FormRegister>
-        {typeUser === true
+        {showUser === true
           ?
           <UserRegister>
             <h1>Cadastro de Usuário</h1>
@@ -124,7 +138,7 @@ const Register = ({ history }) => {
                 <input type="text" value={nameService} onChange={e => setNameService(e.target.value)}placeholder="Nome" required />
               </div>
               <div className="line">
-                <input type="file" value={file} onChange={e => setFile(e.target.value)} className="file" placeholder="Anexar arquivo" required />
+                <input type="file" onChange={e => setFile(e.target.files[0])} className="file" placeholder="Anexar arquivo" required />
               </div>
               <div className="line">
                 <textarea cols="30" value={description} onChange={e => setDescription(e.target.value)} rows="50" placeholder="Descrição" required />
