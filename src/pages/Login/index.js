@@ -19,7 +19,7 @@ const Login = ({ history }) => {
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    const loginUser = await api.post('login', {
+    const loginUser = await api.post('loginWeb', {
       cpf: cpff,
       password: password
     });
