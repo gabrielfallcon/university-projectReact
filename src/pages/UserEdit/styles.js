@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import logo from '../../assets/fundo.jpg';
 
+
 export const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -13,6 +14,24 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
+  .voltar {
+    width: 150px;
+    position: absolute;
+    height: 50px;
+    padding: 10px 0px;
+    color: #FAFAFA;
+    background-color: #31629e;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid #31629e;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    transition: .4s;
+  }
 
   @media(max-width: 768px) {
     flex-direction: column;
@@ -21,143 +40,19 @@ export const Container = styled.div`
   }
 `;
 
-export const TypeRegister = styled.div`
-  width: 40%;
-  height: 100%;
-  max-height: 600px;
-  background-color: #FAFAFA;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Table = styled.div`
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
   flex-direction: column;
   position: relative;
-
-  header {
-    .logoff {
-      height: 60px;
-      width: 150px;
-      background-color: transparent;
-      border: 2px solid #121212;
-      color: #1d1d1d;
-      margin-bottom: 20px;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 5px;
-      position:absolute;
-      top: 5px;
-      right: 10px;
-    }
-    
-    h1 {
-      font-size: 50px;
-      font-weight: 400;
-      margin-bottom: 80px
-    }
-  }
-
-  .btn{
-    display: flex;
-    flex-direction: column;
-    
-    button{
-      height: 70px;
-      width: 250px;
-      background-color: #31629e;
-      border: 0;
-      color: #FAFAFA;
-      margin-bottom: 20px;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .list {
-      background-color: transparent;
-      border: 1px solid #31629e;
-      color: #31629e;
-    }
-  }
-
-  @media(max-width: 768px) {
-    width: 100%;
-    border-radius: 0;
-    
-    header {
-      width: 100%;
-      display: flex;
-      align-items:center;
-      justify-content: space-around;
-      
-      .logoff {
-        height: 40px;
-        width: 100px;
-        border: 1px solid #121212;
-      }
-
-      h1 {
-        font-size: 25px;
-        margin-bottom: 50px;
-        margin-left: -10%;
-        margin-top: 10px;
-      }
-    }
-  }
-`;
-
-export const FormRegister = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-  }
-`;
-
-export const UserRegister = styled.div`
-  width: 100%;
-  height: 90%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  margin-top: 10%;
 
   h1 {
-    font-size: 50px;
+    font-size: 28px;
     color: #FAFAFA;
-    margin-bottom: 10%;
-  }
-
-  @media(max-width: 768px) {
-    height: auto;
-
-    h1 {
-      font-size: 40px;
-      margin-top: 20px;
-    }
-  }
-`;
-
-export const ServiceRegister = styled.div`
-  width: 100%;
-  height: 90%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  h1 {
-    font-size: 50px;
-    color: #FAFAFA;
-    margin-bottom: 10%;
-  }
-
-  @media(max-width: 768px) {
-    height: auto;
-
-    h1 {
-      font-size: 40px;
-      margin-top: 20px;
-    }
+    text-align: center;
+    text-transform: uppercase;
   }
 `;
 
@@ -204,7 +99,7 @@ export const Form = styled.form`
       }
     }
     .prestador{
-      margin-bottom: 10%;
+      margin-bottom: 10px;
     }
     .nome{
       width: 60%

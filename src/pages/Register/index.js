@@ -12,6 +12,7 @@ import { Container, TypeRegister, FormRegister, UserRegister, ServiceRegister, F
 const Register = ({ history }) => {
   const [success, setSuccess] = useState(false)
   const [showUser, setShowUser] = useState(false)
+  const [showPage, setShowPage] = useState('Service');
   
   // User 
   const [name, setName] = useState('')
@@ -87,17 +88,28 @@ const Register = ({ history }) => {
     history.push('/')
   }
 
+  const navigateToListServices = () => {
+    history.push('/services');
+  }
+
+  const navigateToListUsers = () => {
+    history.push('/users');
+  }
+
   return (
     <Container>
-      {success == true ? <Modal close={closeModel} title="Cadastrado com sucesso" /> : ''}
+      {success === true ? <Modal close={closeModel} title="Cadastrado com sucesso" /> : ''}
       <TypeRegister>
         <header>
-          <h1>Tipos de Cadastro</h1>
+          <h1>Painel de acesso</h1>
           <button onClick={logoff} className="logoff">Sair</button>
         </header>
         <div className="btn">
-          <button onClick={setUser}>Usuário</button>
-          <button onClick={setService}>Serviço</button>
+          <button onClick={setUser}>Novo Usuário</button>
+          <button className="list" onClick={navigateToListUsers} >Lista de Usuários</button>
+          <br></br>
+          <button onClick={setService}>Novo Serviço</button>
+          <button className="list" onClick={navigateToListServices}>Lista de Serviços</button>
         </div>
       </TypeRegister>
 
@@ -126,7 +138,7 @@ const Register = ({ history }) => {
                 <input type="text" value={address} onChange={e => setAddress(e.target.value)} className="endereco" placeholder="Endereço" required />
                 <input type="text" value={number} onChange={e => setNumber(e.target.value)} className="numero" placeholder="Numero" required />
               </div>
-              {/* <button>Add Endereço</button> */}
+
               <button type="submit" className="cadastro">Cadastrar</button>
             </Form>
           </UserRegister>
