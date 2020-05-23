@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { Container, Table } from './styles'
 import api from '../../services/api';
 
+import logo from '../../assets/logo.png'
+
 const ListUsers = ({ history }) => {
 
   const [users, setUsers] = useState([]);
@@ -32,6 +34,7 @@ const ListUsers = ({ history }) => {
 
   return(
     <Container>
+      <img src={logo} alt=""/>
       <Table>
         <button onClick={navigateBack}>Voltar</button>
         <ul className="title">

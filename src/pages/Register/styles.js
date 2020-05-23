@@ -24,7 +24,7 @@ export const Container = styled.div`
 export const TypeRegister = styled.div`
   width: 40%;
   height: 100%;
-  max-height: 600px;
+  max-height: 500px;
   background-color: #FAFAFA;
   border-radius: 5px;
   display: flex;
@@ -35,10 +35,10 @@ export const TypeRegister = styled.div`
 
   header {
     .logoff {
-      height: 60px;
-      width: 150px;
+      height: 40px;
+      width: 120px;
       background-color: transparent;
-      border: 2px solid #121212;
+      border: 1px solid #121212;
       color: #1d1d1d;
       margin-bottom: 20px;
       font-size: 18px;
@@ -50,7 +50,7 @@ export const TypeRegister = styled.div`
     }
     
     h1 {
-      font-size: 50px;
+      font-size: 34px;
       font-weight: 400;
       margin-bottom: 80px
     }
@@ -93,12 +93,19 @@ export const TypeRegister = styled.div`
         width: 100px;
         border: 1px solid #121212;
       }
+    }
+    .btn{
+      margin-top: 50px;
 
-      h1 {
-        font-size: 25px;
-        margin-bottom: 50px;
-        margin-left: -10%;
-        margin-top: 10px;
+      button{
+        height: 50px;
+        width: 200px;
+      }
+
+      .list {
+        background-color: transparent;
+        border: 1px solid #31629e;
+        color: #31629e;
       }
     }
   }
@@ -107,6 +114,7 @@ export const TypeRegister = styled.div`
 export const FormRegister = styled.div`
   width: 50%;
   height: 100%;
+  max-height: 500px;
   display: flex;
 
   @media (max-width: 768px) {
@@ -123,16 +131,17 @@ export const UserRegister = styled.div`
   flex-direction: column;
 
   h1 {
-    font-size: 50px;
+    font-size: 36px;
+    text-transform: uppercase;
     color: #FAFAFA;
-    margin-bottom: 10%;
+    margin-bottom: 20px;
   }
 
   @media(max-width: 768px) {
     height: auto;
 
     h1 {
-      font-size: 40px;
+      font-size: 30px;
       margin-top: 20px;
     }
   }
@@ -146,16 +155,17 @@ export const ServiceRegister = styled.div`
   flex-direction: column;
 
   h1 {
-    font-size: 50px;
+    font-size: 36px;
+    text-transform: uppercase;
     color: #FAFAFA;
-    margin-bottom: 10%;
+    margin-bottom: 20px;
   }
 
   @media(max-width: 768px) {
     height: auto;
 
     h1 {
-      font-size: 40px;
+      font-size: 30px;
       margin-top: 20px;
     }
   }
@@ -174,7 +184,7 @@ export const Form = styled.form`
     justify-content: left;
 
     input, select {
-      height: 70px;
+      height: 50px;
       padding: 20px;
       margin: 0 10px;
       border: 0;
@@ -189,8 +199,8 @@ export const Form = styled.form`
     }
 
     textarea {
-      width: 60%;
-      height: 300px;
+      width: 90%;
+      height: 150px;
       padding: 20px;
       margin: 0 10px;
       border: 0;
@@ -204,7 +214,8 @@ export const Form = styled.form`
       }
     }
     .prestador{
-      margin-bottom: 10%;
+      margin-bottom: 20px;
+      padding: 10px 5px;
     }
     .nome{
       width: 60%
@@ -230,9 +241,9 @@ export const Form = styled.form`
   }
 
   button {
-    margin-top: 10px;
-    width: 190px;
-    height: 80px;
+    margin-top: 5px;
+    width: 150px;
+    height: 50px;
     background-color: #FAFAFA;
     border: 0;
     font-size: 20px;
@@ -242,7 +253,7 @@ export const Form = styled.form`
   }
 
   .cadastro{
-    margin-top: 10%;
+    margin-top: 20px;
     align-self: flex-end;
     border: 0;
     background-color: #FAFAFA;

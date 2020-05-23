@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import { cpf } from 'cpf-cnpj-validator'
-
 import api from '../../services/api'
-
 import Error from '../../components/Error'
+
+import { FiLogIn, FiLock} from 'react-icons/fi'
+
+import logo from '../../assets/logo.png'
 
 import { Container, Content } from './styles';
 
@@ -41,23 +43,30 @@ const Login = ({ history }) => {
   return(
     <Container>
       <Content>
+        <img src={logo}/>
         <h1>Login</h1>
         <form onSubmit={handleLogin}>
-          <input 
-            type="text" 
-            placeholder="Digite seu CPF"
-            value={cpff}
-            onChange={e => setCpf(e.target.value)}
-          />
+          <div className="input">
+            <FiLogIn size={20} color="#FAFAFA" style={{marginLeft: 10}}/>
+            <input 
+              type="text" 
+              placeholder="Digite seu CPF"
+              value={cpff}
+              onChange={e => setCpf(e.target.value)}
+            />
+          </div>
 
           {!cpf.isValid(cpff) && cpff.length >= 11 ? <Error error="CPF invalido" /> : ''}
 
-          <input 
-            type="password" 
-            placeholder="Digite sua senha"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
+          <div className="input">
+            <FiLock size={20} color="#FAFAFA" style={{marginLeft: 10}}/>
+            <input 
+              type="password" 
+              placeholder="Digite sua senha"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+          </div>
 
           <button type="submit">Entrar</button>
         </form>

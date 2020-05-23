@@ -36,11 +36,11 @@ export const Container = styled.div`
   @media(max-width: 768px) {
     flex-direction: column;
     padding: 0;
-    height: auto;
+    height: 100vh;
   }
 `;
 
-export const Table = styled.div`
+export const Table = styled.div`vv
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
@@ -53,6 +53,14 @@ export const Table = styled.div`
     color: #FAFAFA;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 80px;
+
+    h1 {
+      margin-top: 20px;
+    }
   }
 `;
 
@@ -148,6 +156,7 @@ export const Form = styled.form`
     width: 100%;
     height: auto;
     padding: 0 5px;
+    margin-top: 20px;
 
     .line {
       flex-direction: column;
@@ -157,16 +166,19 @@ export const Form = styled.form`
       input {
         width: 80% !important;
         margin-bottom: 10px;
+        height: 50px;
       }
       textarea {
         width: 90%
       }
       .prestador {
         width: 70%;
+        height: 60px;
       }
     }
 
     .cadastro {
+      height: 60px;
       margin-bottom: 20px;
       align-self: center;
     }

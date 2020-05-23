@@ -2,11 +2,10 @@ import styled from 'styled-components'
 import logo from '../../assets/fundo.jpg';
 
 export const Container = styled.div`
-  /* box-sizing: border-box; */
-  /* width: 100%; */
+  box-sizing: border-box;
+  width: 100%;
   flex: 1;
   height: 100vh;
-  /* background-color: #1D1D1D; */
   padding: 30px;
   margin: 0;
   display: flex;
@@ -17,24 +16,20 @@ export const Container = styled.div`
   background-size: cover;
   background-position: center;
 
-  img {
-    width: 400px;
-    position: absolute;
-    right: 20%;
-    top: 20%;
-  }
-
   @media(max-width: 768px) {
     padding: 0;
     border-radius: 0;
     flex-direction: column-reverse;
     justify-content: center;
+    padding: 0;
+    background-image: none;
+    background-color: #FAFAFA;
 
     img {
       width: 250px;
       top: 20px;
       position: relative;
-      right: 0;
+      right: 25%;
     }
   }
 `;
@@ -49,11 +44,19 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+
+  img {
+    width: 200px;
+    margin: 0px;
+    position: absolute;
+    top: -30px;
+  }
   
   h1 {
-    font-size: 50px;
-    font-weight: 400;
-    margin-bottom: 50px
+    font-size: 40px;
+    font-weight: 600;
+    margin: 20px 0px;
   }
 
   form { 
@@ -61,17 +64,27 @@ export const Content = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    
-    input {
+
+    .input{
       width: 50%;
       height: 60px;
+      display: flex;
+      /* justify-content: space-around; */
+      align-items: center;
       border: 0;
       background-color: #31629e;
-      padding: 10px 20px;
       margin-bottom: 20px;
+      flex-direction: row;
+    }
+    
+    input {
+      width: 100%;
+      padding: 10px 20px;
       color: #FAFAFA;
       font-size: 18px;
       border-radius: 4px;
+      background-color: transparent;
+      border: 0;
 
       &::placeholder {
         color: #FAFAFA;
@@ -95,27 +108,32 @@ export const Content = styled.div`
 
   @media(max-width: 768px) {
     width: 100%;
-    max-height: 400px;
+    height: 100vh;
     border-radius: 0;
-    background-color: #1D1D1D;
+    background-color: #FAFAFA;
 
     h1{
       display: none;
     }
 
     form{
-      input{
+      width: 100%;
+      .input {
         width: 80%;
-        color: #1D1D1D;
-        background-color: #BB86FC;
-        ::placeholder {
-          color: #121212;
+        background-color: #31629e;
+        input{
+          width: 80%;
+          color: #FAFAFA;
+          background-color: transparent;
+          ::placeholder {
+            color: #FAFAFA;
+          }
         }
       }
       button{
         width: 180px;
-        background-color: #BB86FC;
-        color: #1D1D1D;
+        background-color: #1D1D1D;
+        color: #FAFAFA;
       }
     }
   }

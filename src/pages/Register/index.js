@@ -101,7 +101,7 @@ const Register = ({ history }) => {
       {success === true ? <Modal close={closeModel} title="Cadastrado com sucesso" /> : ''}
       <TypeRegister>
         <header>
-          <h1>Painel de acesso</h1>
+          {/* <h1>Painel de acesso</h1> */}
           <button onClick={logoff} className="logoff">Sair</button>
         </header>
         <div className="btn">

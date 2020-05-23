@@ -8,15 +8,23 @@ export const Container = styled.div`
   align-items: center;
   justify-content: start;
   flex-direction: column;
+
+  img {
+    width: 200px;
+  }
 `;
 
 export const Table = styled.div`
   width: 100%;
   max-width: 1300px;
+  max-height: 700px;
+  height: 100%;
+  overflow-y: scroll;
   margin: 0 auto;
   flex-direction: column;
   position: relative;
-  margin-top: 10%;
+  margin-top: 20px;
+  padding: 10px 20px;
 
   button {
     width: 150px;
@@ -93,6 +101,14 @@ export const Table = styled.div`
       font-size: 22px;
       font-weight: bold;
       color: #1D1D1D;
+    }
+  }
+
+  @media(max-width: 768px) {
+    max-width: 100%;
+    ul {
+      width: 1600px;
+      overflow: scroll;
     }
   }
 `;
