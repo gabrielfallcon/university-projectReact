@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {useLocation, useHistory} from 'react-router-dom'
 import api from '../../services/api'
 
 import { Container, Form, Table } from './styles'
@@ -6,23 +7,40 @@ import { Container, Form, Table } from './styles'
 import Modal from '../../components/Modal'
 import Error from '../../components/Error'
 
-const UserEdit = ({ history }) => {
+const UserEdit = (props) => {
+  const history = useHistory();
+  const location = useLocation();
+// eslint-disable-next-line
   const [success, setSuccess] = useState(false)
+  // eslint-disable-next-line
   const [showUser, setShowUser] = useState(false)
  
   
   // User 
+  const [id, setId] = useState('')
   const [name, setName] = useState('')
   const [cpff, setCpf] = useState('')
   const [password, setPassword] = useState('')
   const [address, setAddress] = useState('')
   const [number, setNumber] = useState('')
-  const [typeUser, setTypeUser] = useState('admin')
+  const [typeUser, setTypeUser] = useState('')
 
-  const handdlRegisterUser = async (e) => {
+  const getUser = async () => {
+    const response = await api.get(`/users/${location.state.userId}`);
+    const user = response.data
+    setId(user._id);
+    setName(user.name);
+    setCpf(user.cpf);
+    setPassword(user.password);
+    setAddress(user.address);
+    setNumber(user.number);
+    setTypeUser(user.typeuser);
+  }
+
+  const handdlUpdateUser = async (e) => {
     e.preventDefault()
-
-    const response = await api.post('sessions', {
+// eslint-disable-next-line
+    const response = await api.put(`/users/${id}`, {
       name,
       cpf: cpff,
       password,
@@ -40,30 +58,36 @@ const UserEdit = ({ history }) => {
     setNumber('')
     setTypeUser('')
   }
-  const setService = () => {
-    setShowUser(false)
-  }
+  // const setService = () => {
+  //   setShowUser(false)
+  // }
 
-  const setUser = () => {
-    setShowUser(true)
-  }
+  // const setUser = () => {
+  //   setShowUser(true)
+  // }
 
   const closeModel = () => {
     setSuccess(false)
+    history.push('/users');
   }
 
-  const logoff = () => {
-    localStorage.removeItem('user');
-    history.push('/')
+  const navigateBack = () => {
+    history.push('/users');
   }
+
+  useEffect(() => {
+    getUser();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   return(
     <Container>
-      <button className="voltar">Voltar</button>
+      {success === true ? <Modal close={closeModel} title="Atualizado com sucesso" /> : ''}
+      <button className="voltar" onClick={navigateBack}>Voltar</button>
       <Table>
         <h1>Editar Usuário</h1>
-        <Form onSubmit={handdlRegisterUser}>
+        <Form onSubmit={handdlUpdateUser}>
               <div className="line">
                 <select  value={typeUser} onChange={e => setTypeUser(e.target.value)} name="prestador" className="prestador" required>
                   <option value="admin">Admin</option>

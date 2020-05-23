@@ -11,8 +11,18 @@ const ListUsers = ({ history }) => {
     setUsers(responde.data);
   }
 
+  const handleDeleteUser = async (id) => {
+    const response = await api.delete(`/users/${id}`);
+    alert('Usuario deletado com sucesso!');
+    getUsers();
+  }
+
   const navigateBack = () => {
     history.push('/register');
+  }
+
+  const navigateToUserEdit = (id) => {
+    history.push('/user', {userId: id});
   }
 
   useEffect(() => {
@@ -23,7 +33,7 @@ const ListUsers = ({ history }) => {
   return(
     <Container>
       <Table>
-        <button>Voltar</button>
+        <button onClick={navigateBack}>Voltar</button>
         <ul className="title">
           <li>Nome</li>
           <li>CPF</li>
@@ -42,8 +52,8 @@ const ListUsers = ({ history }) => {
                 <li>{user.number}</li>
                 <li>{user.typeuser}</li>
                 <li class="action">
-                  <button className="edit">Editar</button>
-                  <button className="delete">Deletar</button>
+                  <button className="edit" onClick={() => {navigateToUserEdit(user._id)}}>Editar</button>
+                  <button className="delete" onClick={() => {handleDeleteUser(user.cpf)}}>Deletar</button>
                 </li>
               </ul>
             )

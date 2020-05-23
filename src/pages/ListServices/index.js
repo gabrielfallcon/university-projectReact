@@ -15,6 +15,12 @@ const ListServices = ({ history }) => {
     history.push('/register');
   }
 
+  const navigateToServiceEdit = (id) => {
+    history.push('/service', {
+      serviceId: id
+    })
+  }
+
   useEffect(() => {
     getServices();
   }, [])
@@ -44,7 +50,7 @@ const ListServices = ({ history }) => {
                 <li>{service.name}</li>
                 <li>{service.description}</li>
                 <li class="action">
-                  <button className="edit">Editar</button>
+                  <button className="edit" onClick={() => {navigateToServiceEdit(service._id)}}>Editar</button>
                   <button className="delete">Deletar</button>
                 </li>
               </ul>
