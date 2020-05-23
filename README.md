@@ -1,11 +1,11 @@
 <h1 align="center">
-    <img alt="React RocketShoes" src="https://res.cloudinary.com/lukemorales/image/upload/v1562696000/readme_logos/react-rocketshoes_jy1lze.png" />
+    <img alt="React RocketShoes" src="https://res.cloudinary.com/https-github-com-gabrielfallcon/image/upload/v1590256381/web_wcuiwf.gif" />
     <br>
-    React Native RocketShoes
+    Serviço - Manutenção de Condomínios 
 </h1>
 
 <h4 align="center">
-  NetShoes Clone App with React Native and Redux.
+  Frontend Clone App with React.
 </h4>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/lukemorales/rocketshoes-react-native.svg">
@@ -39,22 +39,14 @@
   <img alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1563425600/readme_logos/rocketshoes-native_gsjofr.gif">
 </p>
 
-## :rocket: Technologies
+## :rocket: Techs
 
-This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/bootcamp) with the following technologies:
+Projeto desenvolvido com uma das mais recentes tecnologias utilizadas no mercado:
 
 -  [ReactJS](https://reactjs.org/)
--  [Redux](https://redux.js.org/)
--  [Redux-Saga](https://redux-saga.js.org/)
--  [React Navigation](https://reactnavigation.org/)
 -  [Axios](https://github.com/axios/axios)
--  [Immer](https://github.com/immerjs/immer)
--  [NumeralJS](http://numeraljs.com/)
 -  [styled-components](https://www.styled-components.com/)
 -  [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
--  [react-native-shimmer-placeholder](https://github.com/tomzaku/react-native-shimmer-placeholder)
--  [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient)
--  [Reactotron](https://infinite.red/reactotron)
 -  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: How To Use
@@ -63,30 +55,20 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/lukemorales/rocketshoes-react-native rocketshoesRN
+$ git clone https://github.com/gabrielfallcon/university-projectReact.git frontend
 
 # Go into the repository
-$ cd rocketshoes-react-native
+$ cd frontend
 
 # Install dependencies
 $ yarn install
 
-# Run the app (iOS)
-$ react-native run-ios --simulator="iPhone XS Max"
-
-# Run the app (Android)
-$ react-native run-android
+# Run the app (WEB)
+$ yarn start
 ```
-
-## :memo: License
-This project is under the MIT license. See the [LICENSE](https://github.com/lukemorales/rocketshoes-react-native/blob/master/LICENSE) for more information.
-
 ---
 
-Made with ♥ by Luke Morales :wave: [Get in touch!](https://www.linkedin.com/in/lukemorales/)
+Feito por [Gabriel Nascimento](https://www.linkedin.com/in/frontgabriel/) e [Matheus Moureira](https://www.linkedin.com/in/matheus-moreira-35a336172/)
 
 [nodejs]: https://nodejs.org/
 [yarn]: https://yarnpkg.com/
-[vc]: https://code.visualstudio.com/
-[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
