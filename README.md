@@ -36,7 +36,7 @@
 
 
 <p align="center">
-  <img alt="Demo on Netlify" src="https://res.cloudinary.com/https-github-com-gabrielfallcon/image/upload/v1590256381/web_wcuiwf.gif">
+  <img alt="Demo on Netlify" src="https://github.com/gabrielfallcon/university-projectReact/blob/master/assets/web.gif">
 </p>
 
 ## :rocket: Techs
