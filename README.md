@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="React RocketShoes" src="https://res.cloudinary.com/https-github-com-gabrielfallcon/image/upload/v1590256381/web_wcuiwf.gif" />
+    <img alt="React RocketShoes" src="https://res.cloudinary.com/https-github-com-gabrielfallcon/image/upload/v1590256676/logo-oficial_qujllr.png" />
     <br>
     Serviço - Manutenção de Condomínios 
 </h1>
@@ -36,7 +36,7 @@
 
 
 <p align="center">
-  <img alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1563425600/readme_logos/rocketshoes-native_gsjofr.gif">
+  <img alt="Demo on Netlify" src="https://res.cloudinary.com/https-github-com-gabrielfallcon/image/upload/v1590256381/web_wcuiwf.gif">
 </p>
 
 ## :rocket: Techs
