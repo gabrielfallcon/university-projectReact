@@ -13,6 +13,12 @@ const ListServices = ({ history }) => {
     setServices(response.data);
   }
 
+  const handleDeleteService = async (id) => {
+    const response = await api.delete(`/services/${id}`);
+    alert('Serviço deletado com sucesso!');
+    getServices();
+  }
+
   const navigateBack = () => {
     history.push('/register');
   }
@@ -54,7 +60,7 @@ const ListServices = ({ history }) => {
                 <li>{service.description}</li>
                 <li class="action">
                   <button className="edit" onClick={() => {navigateToServiceEdit(service._id)}}>Editar</button>
-                  <button className="delete">Deletar</button>
+                  <button className="delete" onClick={() => {handleDeleteService(service._id)}}>Deletar</button>
                 </li>
               </ul>
             )
